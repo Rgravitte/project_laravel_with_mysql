@@ -4,7 +4,7 @@
 @section('content')
 
     <h1 class="title">Edit Project</h1>
-    <form method="POST" action="/projects/{{ $project->id }}">
+    <form method="POST" action="/projects">
 
         {{ method_field('PATCH') }}
         {{ csrf_field() }}
@@ -19,13 +19,13 @@
         </div>
         <div class='field'>
             
-                <label class='label' for='description'>Description: </label>
+            <label class='label' for='description'>Description: </label>
                 
-                <div class='control'>
+            <div class='control'>
                 <textarea name="description" class="textarea">{{ $project->description }}</textarea>
-                </div>
-                
             </div>
+                
+        </div>
 
             <div class="field">
                 <div class="control">

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('projects.welcome');
 });
 
 // GET /projects (index)
@@ -20,14 +20,14 @@ Route::get('/', function () {
 
 // Route::resource('projects', 'ProjectsController');
 
-
+// Route::get('/', 'ProjectsController@index');
 Route::get('/projects', 'ProjectsController@index');
 Route::get('/projects/{project}', 'ProjectsController@show');
-Route::get('/projects/create', 'ProjectsController@create');
 Route::get('/projects/{project}/edit', 'ProjectsController@edit'); 
 
 Route::patch('/projects/{project}', 'ProjectsController@update');
 
-Route::delete('/projects/{project}', 'ProjectsController@destroy');
 
+Route::get('/projects/create', 'ProjectsController@create');
 Route::post('/projects', 'ProjectsController@store');
+Route::delete('/projects/{project}', 'ProjectsController@destroy');
