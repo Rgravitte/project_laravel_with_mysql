@@ -22,12 +22,14 @@ Route::get('/', function () {
 
 // Route::get('/', 'ProjectsController@index');
 Route::get('/projects', 'ProjectsController@index');
+Route::get('/projects/create', 'ProjectsController@create');
 Route::get('/projects/{project}', 'ProjectsController@show');
 Route::get('/projects/{project}/edit', 'ProjectsController@edit'); 
-
 Route::patch('/projects/{project}', 'ProjectsController@update');
-
-
-Route::get('/projects/create', 'ProjectsController@create');
-Route::post('/projects', 'ProjectsController@store');
 Route::delete('/projects/{project}', 'ProjectsController@destroy');
+Route::post('/projects', 'ProjectsController@store');
+
+
+
+
+// Route::post('/projects/create', 'ProjectsController@store');

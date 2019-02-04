@@ -1,55 +1,50 @@
-@extends('layout')
-
-
+@extends('layout') 
 @section('content')
 
-    <h1 class="title">Edit Project</h1>
-    <form method="POST" action="/projects">
+<h1 class="title">Edit Project</h1>
+<form method="POST" action="/projects/{{ $project->id }}">
 
-        {{ method_field('PATCH') }}
-        {{ csrf_field() }}
-        <div class='field'>
-            
-            <label class='label' for='title'>Title: </label>
-            
-            <div class='control'>
-                <input type='text' class="input" name="title" placeholder="Title" value="{{ $project->title }}">
-            </div>
-            
-        </div>
-        <div class='field'>
-            
-            <label class='label' for='description'>Description: </label>
-                
-            <div class='control'>
-                <textarea name="description" class="textarea">{{ $project->description }}</textarea>
-            </div>
-                
+    {{ method_field('PATCH') }} {{ csrf_field() }}
+    <div class='field'>
+
+        <label class='label' for='title'>Title: </label>
+
+        <div class='control'>
+            <input type='text' class="input"  value="{{$project->title}}" name="title">
         </div>
 
-            <div class="field">
-                <div class="control">
+    </div>
+    <div class='field'>
 
-                    <button type="submit" class="button is-link">Update Project</button>
+        <label class='label' for='description'>Description: </label>
 
-                </div>
-            </div>
+        <div class='control'>
+            <textarea name="description" class="textarea">{{ $project->description }}</textarea>
+        </div>
 
-        <form method="POST" action="/projects/{{ $project->id }}">
+    </div>
 
-            {{  method_field('DELETE') }}
-            @csrf    
+    <div class="field">
+        <div class="control">
 
-            <div class="field">
+            <button type="submit" class="button is-link">Update Project</button>
 
-                    <div class="control">
-    
-                        <button type="submit" class="button ">Delete Project</button>
-    
-                 </div>
+        </div>
+    </div>
+</form>
+<form method="POST" action="/projects/{{ $project->id }}">
 
-             </div>
+    {{ method_field('DELETE') }} {{ csrf_field() }}
 
-    </form>
+    <div class="field">
 
+        <div class="control">
+
+            <button type="submit" class="button danger" style="background-color:red;">Delete Project</button>
+
+        </div>
+
+    </div>
+
+</form>
 @endsection
