@@ -14,4 +14,20 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// GET /projects (index)
+// POST /projects (store)
+
+// Route::resource('projects', 'ProjectsController');
+
+
 Route::get('/projects', 'ProjectsController@index');
+Route::get('/projects/{project}', 'ProjectsController@show');
+Route::get('/projects/create', 'ProjectsController@create');
+Route::get('/projects/{project}/edit', 'ProjectsController@edit'); 
+
+Route::patch('/projects/{project}', 'ProjectsController@update');
+
+Route::delete('/projects/{project}', 'ProjectsController@destroy');
+
+Route::post('/projects', 'ProjectsController@store');
